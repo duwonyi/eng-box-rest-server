@@ -14,7 +14,6 @@ module.exports = {
     const sentenceProps = req.body
 
     Sentence.create(sentenceProps)
-      .populate('source')
       .then(sentence => res.status(201).send(sentence))
       .catch(next)
   },
