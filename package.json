@@ -1,0 +1,19 @@
+{
+  "name": "eng-box-rest-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "compression": "^1.6.2",
+    "cors": "^2.8.3",
+    "express": "^4.15.3",
+    "mongoose": "^4.10.5"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
