@@ -34,5 +34,11 @@ module.exports = {
     Source.findByIdAndRemove( { _id: sourceId })
       .then(source => res.status(204).send(source))
       .catch(next)
-  }
+  },
+  indexType(req, res, next) {
+    const type = req.params.type
+    Source.find({ type })
+      .then(sources => res.send(sources))
+      .catch(next)
+  },
 }

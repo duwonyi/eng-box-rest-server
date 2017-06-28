@@ -14,4 +14,5 @@ module.exports = (app) => {
   app.get('/api/sources/:id', SourcesCtrl.read)
   app.patch('/api/sources/:id', SourcesCtrl.update)
   app.delete('/api/sources/:id', SourcesCtrl.delete)
+  app.get('/api/sources/types/:type', SourcesCtrl.indexType)
 }

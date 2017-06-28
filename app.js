@@ -8,9 +8,17 @@ const routes = require('./routes/routes')
 
 const app = express()
 
+const {
+  DB_HOST,
+  DB_USER,
+  DB_PASS,
+  DB_PORT,
+  DB_NAME,
+} = process.env
+
 mongoose.Promise = global.Promise
 if (process.env.NODE_ENV !== 'test') {
-  mongoose.connect('mongodb://localhost/eng-box')
+  mongoose.connect( `mongodb://${DB_USER}:${DB_PASS}@${DB_HOST}:${DB_PORT}/${DB_NAME}`)
 }
 
 app.use(compression())
