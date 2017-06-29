@@ -60,3 +60,12 @@ typings/
 # vscode
 .vscode/
 jsconfig.json
+
+# aws
+.gitignore
+.elasticbeanstalk
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
