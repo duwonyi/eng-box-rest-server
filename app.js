@@ -17,8 +17,11 @@ const {
 } = process.env
 
 mongoose.Promise = global.Promise
-if (process.env.NODE_ENV !== 'test') {
-  mongoose.connect( `mongodb://${DB_USER}:${DB_PASS}@${DB_HOST}:${DB_PORT}/${DB_NAME}`)
+
+if (process.env.NODE_ENV !== 'test' && process.env.NODE_ENV !== 'development') {
+  mongoose.connect(`mongodb://${DB_USER}:${DB_PASS}@${DB_HOST}:${DB_PORT}/${DB_NAME}`)
+} else {
+  mongoose.connect('mongodb://localhost/eng-box')
 }
 
 app.use(compression())
