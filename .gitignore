@@ -60,3 +60,6 @@ typings/
 # vscode
 .vscode/
 jsconfig.json
+
+# aws
+.elasticbeanstalk/
