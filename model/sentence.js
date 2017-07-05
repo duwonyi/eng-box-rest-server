@@ -6,14 +6,15 @@ const SentenceSchema = new Schema({
     type: String,
     required: true
   },
-  location: String,
+  detail: String,
   createdAt: {
     type: Date,
     default: Date.now
   },
   source: {
     type: Schema.Types.ObjectId,
-    ref: 'source'
+    ref: 'source',
+    required: true
   }
 })
 
