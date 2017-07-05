@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+- 6
+cache:
+  yarn: true
+  directories:
+  - node_modules
+script:
+- yarn test
+env:
+  global:
+    secure: dcsxt28h4aR/OlAiOAoO90XKz6wXdFGVD9DZBFZB5Gx+zdhMRUEcx1fU1Ev6EugG2oc5+kzgR5D2pNh3QtVJm1RWcnKvmCbw8uReYAB3MfqF4fkpDwN/GkMOoI+GtjPi/+3oqnYqbrrblc4ozQCO/8BPJIt8UmVCTVRcq8DZTEM6XNXCscHpZ9Abx3vBK4PzccKba6BZQKyLM5TELLMKxHHN3TY4+QQYcFSEU+vsSRlsLtQ4z9DKWwFoAeMGrXmRGOH5602u/58BJjvr8X/Aqa53+99wdpy1+rVw3zLA6czh4P5h3xXdj3I/19vfsWQzzRowAOjUGS5YHJ0slopj9+Zk5BLF7fUK9xpG1TzGqHfSx+BLGD24VEhf8WmAkagdLMsttYJwXGRB3Qj//XTx/wi9iDKUjFXO6uhlJ46ryjQqBMiEfQrYifBXXDdHBSKl67vnTuu6aYiXNv2aI0e5m7sFfZ+2UYpvWdQXl9W3JZbAuEjQJD+kmSOacnLnMVyHOWDwIRAy1WZEJcVY64YOSYRdFBthMk6OP6FbkatrpicOr0YQMbbGVlWMN2Y5X78sKHwo2v39fONqwkRlhX0DUhli/xC4wX4KGqG2F2l9Y3hrYciqlgFx7bbwCdozvARNWEViyDqlPxOEABo/XdZgZrsuak9yjrWFdb07d04cL2c=

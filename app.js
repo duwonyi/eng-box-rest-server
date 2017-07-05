@@ -18,12 +18,12 @@ const {
 
 mongoose.Promise = global.Promise
 
-if (process.env.NODE_ENV !== 'test' && process.env.NODE_ENV !== 'development') {
-  mongoose.connect(`mongodb://${DB_USER}:${DB_PASS}@${DB_HOST}:${DB_PORT}/${DB_NAME}`)
-} else if (process.env.NODE_ENV === 'test') {
-  console.log('test')
-} else {
-  mongoose.connect('mongodb://localhost/eng-box')
+if (!process.env.NODE_ENV.includes('test')) {
+  if (process.env.NODE_ENV === 'production') {
+    mongoose.connect(`mongodb://${DB_USER}:${DB_PASS}@${DB_HOST}:${DB_PORT}/${DB_NAME}`)
+  } else {
+    mongoose.connect('mongodb://localhost/eng-box')
+  }
 }
 
 app.use(compression())

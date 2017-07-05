@@ -4,9 +4,10 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "NODE_ENV=development nodemon index.js",
-    "start": "nodemon index.js",
-    "test": "NODE_ENV=test jest"
+    "start": "NODE_ENV=production node index.js",
+    "test": "NODE_ENV=test jest",
+    "start:dev": "NODE_ENV=development nodemon index.js",
+    "test:dev": "NODE_ENV=local-test jest --watchAll"
   },
   "dependencies": {
     "body-parser": "^1.17.2",
