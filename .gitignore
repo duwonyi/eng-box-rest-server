@@ -69,3 +69,6 @@ jsconfig.json
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+
+# build
+build/
