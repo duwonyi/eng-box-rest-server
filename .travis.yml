@@ -17,6 +17,7 @@ deploy:
   bucket_name: elasticbeanstalk-us-east-1-211533511749
   zip_file: build/server.zip
   bucket_path: eng-box-rest-server
+  skip_cleanup: true
   on:
     branch: hot-fix-for-cd
   secret_access_key:
