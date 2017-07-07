@@ -7,6 +7,7 @@ cache:
   - node_modules
 script:
 - yarn test
+- yarn build
 deploy:
   provider: elasticbeanstalk
   access_key_id: AKIAJX5YBBM7NONXHUZA
@@ -14,6 +15,11 @@ deploy:
   app: eng-box-rest-server
   env: eng-box-rest-server
   bucket_name: elasticbeanstalk-us-east-1-211533511749
+  zip_file: build/server.zip
+  bucket_path: eng-box-rest-server
+  skip_cleanup: true
+  on:
+    branch: master 
   secret_access_key:
     secure: Sf2y+wyqVQBHZggAS0Qe1+baLpVZjtQ3PG2997YQzMuV88DcTba614z+losmtktGYTUIoWxlRY5wg53gpYx/kBRQoeIIVh4AMepHM1HIx4hw0JoXId0AukYlGbsz0gxRw4+s0XdDyXF7rBqI3C3jacwsXf3aCw2VQlZ9lmMl5cNQwAgKo6TiW2oDtTTZqipvsKOJOHn+WpdVkL1JGyFFUmYf3NbtLE1weT4lUbVoZfyCCETVqJCHzkNTnMNh+Q7sllUC0sluGpg/J2ijvZt49gNvzq0O8zmt3yLPzVjnEGCwJ7QKEGsDkuVUFsr5rQIVIrVrpoElcmEmuzT3fo0dxuMd7Xpuo+l7iAym9BAf8QuLzCe4tc3Ic27SXY7l283uDPz5hzzyzHxud4n+8oAsIHdH6GMPlGI6DrvwXpTa045QFYXmi50oVSvxQPj70V45g5jfSNmT0yGQUsSAudP7+dOeLwkVfK2AArrc8uKDQjZlAQDUfoO8IKzEhe7HT/JtmTfTE8bakR6xFmK1nr+SU7VsvwNQttbxFL1Xmbd19xq+qkWiNnICMkoLH9eM3l1ykiE9aB/cs9uzuADK/B7M+d09wgXfWB7E6KwAhJLh7Ak4bKC59P7XxUoe2ck1s1c0fydRT/a6l/xm2n5kw7/3J92dq7oDFY+iwhWcCu17xOQ=
 env:
