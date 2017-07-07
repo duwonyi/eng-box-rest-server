@@ -15,7 +15,7 @@ deploy:
   app: eng-box-rest-server
   env: eng-box-rest-server
   bucket_name: elasticbeanstalk-us-east-1-211533511749
-  zip_file: server.zip
+  zip_file: build/server.zip
   bucket_path: eng-box-rest-server
   on:
     branch: hot-fix-for-cd
