@@ -1,8 +1,14 @@
 {
   "name": "eng-box-rest-server",
   "version": "1.0.0",
+  "description": "A rest api server for Eng-Box built on Node/Express",
+  "author": "Doowon Lee",
   "main": "index.js",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/duwonyi/eng-box-rest-server"
+  },
   "scripts": {
     "start": "NODE_ENV=production node index.js",
     "test": "NODE_ENV=test jest",
