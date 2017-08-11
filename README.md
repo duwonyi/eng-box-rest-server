@@ -51,3 +51,4 @@ The technologies and tools used in this project are as follows.
 | Nodemon | Monitor for any changes in your Node application. |
 | AWS Elastic Beanstalk | Easy-to-use service for deploying and scaling web applications and services |
 | Travis CI | Service for CI and CD |
+| JWT | JSON Web Token for auth |
