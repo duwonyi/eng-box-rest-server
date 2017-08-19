@@ -13,7 +13,12 @@ const SourceSchema = new Schema({
   createdAt: {
     type: Date,
     default: Date.now
-  }
+  },
+  userId: {
+    type: Schema.Types.ObjectId,
+    ref: 'user',
+    required: true
+  },
 })
 
 const Source = mongoose.model('source', SourceSchema)

@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken')
+const util = require('../util')
 
 const authMiddleware = (req, res, next) => {
   const header = req.headers['authorization'] || req.query.token
@@ -10,21 +11,9 @@ const authMiddleware = (req, res, next) => {
   }
 
   const token = header.replace('Bearer ', '')
+  const secret = req.app.get('jwt-secret')
 
-  const validate = () => {
-    return new Promise((resolve, reject) => {
-      jwt.verify(
-        token,
-        req.app.get('jwt-secret'),
-        (err, decoded) => {
-          if (err) reject(err)
-          resolve(decoded)
-        }
-      )
-    })
-  }
-
-  validate()
+  util.verifyToken(token, secret)
     .then(decoded => {
       req.decoded = decoded
       next()

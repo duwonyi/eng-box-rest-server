@@ -33,8 +33,11 @@ module.exports = () => {
     const {
       sentences,
       sources,
+      users,
     } = mongoose.connection.collections
-    Promise.all([sentences.drop(), sources.drop()])
+    Promise.all(
+      [sentences.drop(), sources.drop(), users.drop()]
+    )
       .then(() => {
         console.log('All collections droped.')
         done()

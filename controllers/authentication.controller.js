@@ -1,28 +1,25 @@
+const User = require('../model/user')
+const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
+const util = require('../util')
 
 module.exports = {
   signin(req, res, next) {
     const { email, password } = req.body
-    const seqret = req.app.get('jwt-secret')
+    const secret = req.app.get('jwt-secret')
 
-    const validate = () => {
-      return new Promise((resolve, reject) => {
-        jwt.sign({
-          email
-        },
-        seqret,
-        {
-           expiresIn: '30d'
-        },
-        (err, token) => {
-          if (err) reject(err)
-          resolve(token)
-        })
+    User.findOne({ email })
+      .then(user => {
+        if (bcrypt.compareSync(password, user.password)) {
+          util.generateToken(email, secret)
+            .then(token => res.send({ userId: user._id, token }))
+            .catch(next)
+        } else {
+          return res.status(401).json({
+            message: 'invalid password'
+          })
+        }
       })
-    }
-
-    validate()
-      .then(token => res.send({token}))
       .catch(next)
   },
   check(req, res, next) {
@@ -35,21 +32,9 @@ module.exports = {
     }
 
     const token = header.replace('Bearer ', '')
+    const secret = req.app.get('jwt-secret')
 
-    const validate = () => {
-      return new Promise((resolve, reject) => {
-        jwt.verify(
-          token,
-          req.app.get('jwt-secret'),
-          (err, decoded) => {
-            if (err) reject(err)
-            resolve(decoded)
-          }
-        )
-      })
-    }
-
-    validate()
+    util.verifyToken(token, secret)
       .then(decoded => res.send(decoded))
       .catch(next)
   }

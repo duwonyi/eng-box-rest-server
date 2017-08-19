@@ -15,7 +15,12 @@ const SentenceSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'source',
     required: true
-  }
+  },
+  userId: {
+    type: Schema.Types.ObjectId,
+    ref: 'user',
+    required: true
+  },
 })
 
 const Sentence = mongoose.model('sentence', SentenceSchema)
