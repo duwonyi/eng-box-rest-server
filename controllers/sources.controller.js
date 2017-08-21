@@ -2,7 +2,8 @@ const Source = require('../model/source')
 
 module.exports = {
   index(req, res, next) {
-    Source.find({})
+    const userId = req.query.userId
+    Source.find({ userId })
       .then(sources => res.send(sources))
       .catch(next)
   },
@@ -37,7 +38,8 @@ module.exports = {
   },
   indexType(req, res, next) {
     const type = req.params.type
-    Source.find({ type })
+    const userId = req.query.userId
+    Source.find({ type, userId })
       .then(sources => res.send(sources))
       .catch(next)
   },

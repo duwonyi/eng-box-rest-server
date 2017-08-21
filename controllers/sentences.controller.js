@@ -5,7 +5,8 @@ module.exports = {
     res.send({ hi: 'there' })
   },
   index(req, res, next) {
-    Sentence.find({})
+    const userId = req.query.userId
+    Sentence.find({ userId })
       .populate('source')
       .then(sentences => res.send(sentences))
       .catch(next)
